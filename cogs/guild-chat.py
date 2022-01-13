@@ -52,7 +52,7 @@ class GuildChat(commands.Cog):
             self.append_command(f" {to_send}")
             text = discord.utils.escape_markdown(message.clean_content)
             displayname = discord.utils.escape_markdown(displayname)
-            self.lastmsg = await message.channel.send(f"{EMOJIS['DISCORD']} **** {text}")
+            self.lastmsg = await message.channel.send(f"{EMOJIS['DISCORD']} ** {text}")
         else:
             await message.channel.send(":x: **ERROR**: That message is too long!")
         await message.delete()
