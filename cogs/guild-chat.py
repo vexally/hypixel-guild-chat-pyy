@@ -49,10 +49,10 @@ class GuildChat(commands.Cog):
             text = message.clean_content
             displayname = message.author.name
             to_send = insert_invis(f"{displayname}: {re.sub('ez', 'e⛶z', text, flags=re.IGNORECASE)}")
-            self.append_command(f" {to_send}")
+            self.append_command(f"{to_send}")
             text = discord.utils.escape_markdown(message.clean_content)
             displayname = discord.utils.escape_markdown(displayname)
-            self.lastmsg = await message.channel.send(f"{EMOJIS['DISCORD']} ** {text}")
+            self.lastmsg = await message.channel.send(f"{EMOJIS['DISCORD']} {text}")
         else:
             await message.channel.send(":x: **ERROR**: That message is too long!")
         await message.delete()
@@ -160,7 +160,7 @@ class GuildChat(commands.Cog):
                 if "[" not in data:
                     user = data
             message = ":".join(split[1:]).replace("@", "@\u200b").replace("<", "<\u200b")
-            self.chatbuffer.append(f"{EMOJIS['HYPIXEL']} **: {message}")
+            self.chatbuffer.append(f"{EMOJIS['HYPIXEL']} **{user}**: {message}")
 
         elif "You cannot say the same message twice!" in msg:
             self.loophandle.create_task(self.lastmsg.edit(
