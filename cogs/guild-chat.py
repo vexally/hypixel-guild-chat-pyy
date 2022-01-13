@@ -160,7 +160,7 @@ class GuildChat(commands.Cog):
                 if "[" not in data:
                     user = data
             message = ":".join(split[1:]).replace("@", "@\u200b").replace("<", "<\u200b")
-            self.chatbuffer.append(f"{EMOJIS['HYPIXEL']} ****: {message}")
+            self.chatbuffer.append(f"{EMOJIS['HYPIXEL']} **: {message}")
 
         elif "You cannot say the same message twice!" in msg:
             self.loophandle.create_task(self.lastmsg.edit(
